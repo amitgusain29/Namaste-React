@@ -1,0 +1,11 @@
+-props: props are Properties, Passing a prop to a component is same as passing a argument to a function.
+1. When we have to dynamically pass in some data to a component we pass in as a prop.
+
+- config driven UI: All the UI is driven by the config (data) the data can be different for any circumstances,  we can control the UI from the Backend.
+
+- why key is important when using map: when components have childrens they have same level components they should be uniquely represented, because when we do not use key property react does not get to know which new set of data is addes in the array and it will re-render all the data which is not a good practice for performance and optimization, that is why key is important so that react should know which data is newly added and only render that set of data. 
+
+- why using index as a key is a bad practice:  It works fine as soon as we add a new child component, react gets confused about which properties belonged to which map component. so key={index} is not recommended itself by react official.
+
+- not using keys (not acceptable) <<<<<< index as key <<<<< unique id (best practice)
+
