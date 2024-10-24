@@ -1,69 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-/*
-* Header
-*   -logo
-*   -Nav Items
-* Body
-*   -Search
-*   -RestaurantContainer
-*   -RestaurantCard
-* Footer
-*   -Copyrights
-*   -Links
-*   -Address
-*   -Contact
-*/
-
-
-const Header = () => {
-    return (
-        <div className="header">
-            <div className="logo-container">
-                <img className="logo" src="https://marketplace.canva.com/EAFaFUz4aKo/2/0/1600w/canva-yellow-abstract-cooking-fire-free-logo-JmYWTjUsE-Q.jpg" />
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    );
-}
-
-// const RestaurantCard = ({resName, cuisine}) => {
-const RestaurantCard = (props) => {
-    const { resData } = props
-    //    console.log(props);
-
-    const {
-        cloudinaryImageId, name, cuisines, avgRating, costForTwo,
-    } = resData?.info
-
-    const {
-        deliveryTime
-    } = resData?.info.sla
-
-
-    return (
-        <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
-            <img className="res-logo" alt="res-logo" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/" + cloudinaryImageId} />
-            <h3>{name}</h3>
-            <h4>{cuisines.join(", ")}</h4>
-            <h4>{avgRating} stars</h4>
-            <h4>{costForTwo}</h4>
-            <h4>{deliveryTime} minutes</h4>
-        </div>
-    )
-}
-
-// https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/9/18/2fb56c16-5ba2-4f29-a978-e059399f8c37_30237.jpg
-
-
 const resList = [
     {
         "info": {
@@ -702,7 +636,7 @@ const resList = [
                 "Bakery",
                 "Beverages"
             ],
-            "avgRating": 4.7,
+            "avgRating": 3.6,
             "parentId": "1040",
             "avgRatingString": "4.7",
             "totalRatingsString": "5.4K+",
@@ -1681,6 +1615,7 @@ const resList = [
                 "Beverages",
                 "Desserts"
             ],
+            "avgRating": 4.3,
             "parentId": "5588",
             "avgRatingString": "--",
             "sla": {
@@ -2111,30 +2046,5 @@ const resList = [
     }
 ];
 
-const Body = () => {
-    return (
-        <div className="body">
-            <div className="search">Search</div>
-            <div className="res-container">
-                {resList.map((restaurant) => (
-                    <RestaurantCard key={restaurant.info.id} resData={restaurant} />
-                ))}
-            </div>
-        </div>
-    );
-}
 
-const AppLayout = () => {
-    return (
-        <div className="app">
-            <Header />
-            <Body />
-        </div >
-    )
-}
-
-const root = ReactDOM.createRoot(document.getElementById("root"))
-
-root.render(<AppLayout />)
-
-// https://www.swiggy.com/dapi/restaurants/list/v5/?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING
+export default resList;

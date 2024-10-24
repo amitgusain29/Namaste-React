@@ -1,11 +1,77 @@
 -props: props are Properties, Passing a prop to a component is same as passing a argument to a function.
+
 1. When we have to dynamically pass in some data to a component we pass in as a prop.
 
-- config driven UI: All the UI is driven by the config (data) the data can be different for any circumstances,  we can control the UI from the Backend.
+// swiggy restaurant image
+https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/9/18/2fb56c16-5ba2-4f29-a978-e059399f8c37_30237.jpg
 
-- why key is important when using map: when components have childrens they have same level components they should be uniquely represented, because when we do not use key property react does not get to know which new set of data is addes in the array and it will re-render all the data which is not a good practice for performance and optimization, that is why key is important so that react should know which data is newly added and only render that set of data. 
+// Swiggy API
+https://www.swiggy.com/dapi/restaurants/list/v5/?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING
 
-- why using index as a key is a bad practice:  It works fine as soon as we add a new child component, react gets confused about which properties belonged to which map component. so key={index} is not recommended itself by react official.
+- config driven UI: All the UI is driven by the config (data) the data can be different for any circumstances, we can control the UI from the Backend.
+
+- why key is important when using map: when components have childrens they have same level components they should be uniquely represented, because when we do not use key property react does not get to know which new set of data is addes in the array and it will re-render all the data which is not a good practice for performance and optimization, that is why key is important so that react should know which data is newly added and only render that set of data.
+
+- why using index as a key is a bad practice: It works fine as soon as we add a new child component, react gets confused about which properties belonged to which map component. so key={index} is not recommended itself by react official.
 
 - not using keys (not acceptable) <<<<<< index as key <<<<< unique id (best practice)
 
+<!-- two types of export -->
+
+<!-- default -->
+
+1. export default Header;
+
+<!-- named export -->
+
+2. when you have to export multiple things in a components file than we use named export. It is basically writing export in front of const or variable, because there cannot be two default in a file.
+
+if we use namd export then while importing it should be like this,
+import {CDN_URL} from "../utils/constants"
+
+<!-- React Hooks -->
+
+(Normal Js utility functions)
+
+- useState() - Superpowerful State variables in react
+- useEffect()
+
+<!-- import useState -->
+
+import {useState} from "react";
+
+<!-- Local State Variable - Superpowerful variable  -->
+
+const [listItems] = useState([]);
+
+<!-- Array destructuring -->
+// OR 
+const arr = useState(resList);
+const [listItems, setListItems] = arr;
+
+// OR
+const arr = useState(resList);
+const listItems = arr[0]
+const setListItems = arr[1]
+
+<!-- Normal Js Variable -->
+
+let listOfRestaurants = []
+
+<!-- whenever a state variable updates, react re-render the components  -->
+
+<!-- React keeps our UI sync with data layer in data layer when you have a local state variable as soon as your data layer updates, your UI layer will update by re-rendering the components in a very less code and optimized way, also with super fast DOM operations and efficiency -->
+
+<!-- React is very good at DOM operations -->
+
+<!-- Reconciliation Algorithm -->
+
+When something changes in the UI is known as reconciliation,The algorithm React uses to diff one tree with another to determine which parts need to be changed.A change in the data used to render a React app. Usually the result of `setState`. Eventually results in a re-render.
+
+<!-- Virtual DOM -->
+
+Virtual DOM: Virtal DOM is a representation of actual DOM. It is kind of nothing but a JS object.
+
+<!-- Diffing Algorithm -->
+
+Diffing Algorithm finds out the difference between updated virtual dom and previous virtual dom, and then actually updates the dom on every render cycle.

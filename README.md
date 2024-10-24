@@ -18,3 +18,20 @@
 - Https
 - Tree shaking - removes unused code
 - Different dev and production bundles
+
+<!-- Namaste Food -->
+
+/*
+* Header
+*   -logo
+*   -Nav Items
+* Body
+*   -Search
+*   -RestaurantContainer
+*   -RestaurantCard
+* Footer
+*   -Copyrights
+*   -Links
+*   -Address
+*   -Contact
+*/
