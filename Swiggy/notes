@@ -8,7 +8,7 @@ https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660
 // Swiggy API
 https://www.swiggy.com/dapi/restaurants/list/v5/?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING
 
-- config driven UI: All the UI is driven by the config (data) the data can be different for any circumstances, we can control the UI from the Backend.
+- config driven UI: All the UI is driven by the config (data) the data can be different for any circumstances, we can control the UI from the Backend.(specially used for different locations different data)
 
 - why key is important when using map: when components have childrens they have same level components they should be uniquely represented, because when we do not use key property react does not get to know which new set of data is addes in the array and it will re-render all the data which is not a good practice for performance and optimization, that is why key is important so that react should know which data is newly added and only render that set of data.
 
@@ -39,7 +39,7 @@ import {CDN_URL} from "../utils/constants"
 <!-- import useState -->
 
 import {useState} from "react";
-
+ 
 <!-- Local State Variable - Superpowerful variable  -->
 
 const [listItems] = useState([]);
@@ -75,3 +75,33 @@ Virtual DOM: Virtal DOM is a representation of actual DOM. It is kind of nothing
 <!-- Diffing Algorithm -->
 
 Diffing Algorithm finds out the difference between updated virtual dom and previous virtual dom, and then actually updates the dom on every render cycle.
+
+<-- useEffect() -->
+
+It takes two arguments first is a callback function and second is a dependency array.
+
+
+// Optional Chaining
+setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+
+The optional chaining (?.) operator accesses an object's property or calls a function. If the object accessed or function called using this operator is undefined or null, the expression short circuits and evaluates to undefined instead of throwing an erro
+
+
+// Conditional Rendering
+if (ListOfRestaurants.length === 0) {
+return <Shimmer />
+}
+
+In React, you can create distinct components that encapsulate behavior you need. Then, you can render only some of them, depending on the state of your application.
+
+Conditional rendering in React works the same way conditions work in JavaScript. Use JavaScript operators like if or the conditional operator to create elements representing the current state, and let React update the UI to match them.
+
+<!-- Shimmer UI -->
+
+A better way to show loading states is to use a shimmer UI. A shimmer UI is a version of the UI that doesn't contain actual content, but instead mimics the layout and shapes of the content that will eventually appear. It uses a gradient animation that creates a shimmering effect over the placeholders, giving the user a sense of motion and progress.
+
+<!-- why local state variable is advanced over normal variable   -->
+
+when you try to update the normal variable in onclick function you will end up getting no changes bcoz it won't let us so in here useState help with const variable and two arguments it re-renders the whole component so const has a principle of not letting the data change but here the whole reconciliation cycle gets updates so no problem in const 
+
+whenever state variables update, react triggers a reconciliation cycle(re-renders the component)

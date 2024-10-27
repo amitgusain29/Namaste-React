@@ -22,20 +22,42 @@
 .nav-items > ul > li {
   font-size: 20px;
   padding: 1rem;
-  padding-top: 1.5rem;
+  padding-top: 1rem;
+}
+
+.filter {
+  display: flex;
+}
+
+.search {
+  margin: 10px; 
+}
+
+.filter-btn {
+  margin: 10px;
+  cursor: pointer;
 }
 
 .res-container {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 5%;
+  margin-left: 5%;
+  border-radius: 20px;
 }
 
 .res-card {
-  width: 250px;
-  background-color: 1px solid black;
-  padding: 5px;
-  margin: 5px;
+  width: 240px;
+  height: 450px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.res-card img {
+  border-radius: 10px;
+  width: 240px;
+  height: 220px;
+  object-fit: cover;
 }
 
 .res-card:hover {
@@ -43,11 +65,27 @@
   cursor: pointer;
 }
 
-.filter-btn{
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 5%;
+  border-radius: 20px;
+  margin-top: 3%;
+}
+
+.shimmer-card {
+  width: 240px;
+  height: 450px;
+  background-color: #f0f0f0c8;
+  padding: 10px;
   margin: 10px;
-  cursor: pointer;
 }
 
 .res-logo {
   width: 100%;
+}
+
+.login {
+  width: 4rem;
+  color: black;
 }
