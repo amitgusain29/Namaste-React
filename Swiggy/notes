@@ -8,6 +8,12 @@ https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660
 // Swiggy API
 https://www.swiggy.com/dapi/restaurants/list/v5/?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING
 
+// bhayandar API
+
+https://www.swiggy.com/mapi/homepage/getCards?lat=19.306523036370468&lng=72.86280434578657&page_type=DESKTOP_WEB_LISTING
+
+setListOfRestaurants(json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
+
 - config driven UI: All the UI is driven by the config (data) the data can be different for any circumstances, we can control the UI from the Backend.(specially used for different locations different data)
 
 - why key is important when using map: when components have childrens they have same level components they should be uniquely represented, because when we do not use key property react does not get to know which new set of data is addes in the array and it will re-render all the data which is not a good practice for performance and optimization, that is why key is important so that react should know which data is newly added and only render that set of data.
@@ -84,7 +90,7 @@ It takes two arguments first is a callback function and second is a dependency a
 // Optional Chaining
 setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 
-The optional chaining (?.) operator accesses an object's property or calls a function. If the object accessed or function called using this operator is undefined or null, the expression short circuits and evaluates to undefined instead of throwing an erro
+The optional chaining (?.) operator accesses an object's property or calls a function. If the object accessed or function called using this operator is undefined or null, the expression short circuits and evaluates to undefined instead of throwing an error.
 
 
 // Conditional Rendering
