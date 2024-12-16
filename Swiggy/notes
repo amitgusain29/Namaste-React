@@ -162,7 +162,6 @@ element: <Contact />,
 
 // Our applications are known as single page applications. New Pages are just components interchanging themselves. Everything is component in react.
 
-
 <!-- Two types of routing -->
 
 // Client side Routing
@@ -176,14 +175,43 @@ Client side routing is enabled by creating a Router and linking/submitting to pa
 
 Server-side routing is a traditional approach to handling routes in web applications. It involves the server sending a response based on the URL path that the user is visiting
 
-
 <!-- Dynamic Routing -->
 
+<!-- Install react-router-dom -->
 
+// npm i react-router-dom
 
 <!-- https://swiggy.com/dapi/menu/pl?page-type-REGULAR_MENU&complete-menu=true&lat=12.9351929&lng=77.62448069999999&restaurantId-425&submitAction=ENTER -->
 
-
-
 <!-- Link  -->
+
 // Link is a wrapper over anchor tag
+
+<!-- class components -->
+
+// never directly update state variables.
+
+// when you update one element of state variable in setState the other element will remain still.
+
+<!-- React.component / Component -->
+
+//if used React.Component then the import should be import react from "react";
+
+// if used Component then the import will be import {Component} from "react";
+
+<!-- Super -->
+
+// Accessing this in the Constructor: In JavaScript, you can't use this in a constructor until you've called the parent's constructor with super(). React components extend from React.Component, so you must call super() first if you want to access this in your component’s constructor. Without calling super(), you would not be able to use this to refer to the component instance in the constructor.
+
+<!-- Parent and child in class component -->
+
+//  The sequence goes like this, First the Parent constructor is called then the Parent render is called as soon the parent render is called it will call child constructor and child render after that now the component is mounted so the ComponentDidMount is called of the Child and afterwards Parent's  ComponentDidMount will be called.
+
+
+<!-- LifeCycle -->
+
+// Render phase: First the Parent constructor is called then parent render is called after that first child constructor and render is called same for the another and many more children.
+
+// Commit Phase: Once the commit phase starts react tries to update the dom and dom manipulation is the most expensive thing when we are updating a component.
+
+// Render phase is just virtual dom it finds the diff and when it tries to update the dom it batches all the children's and later on commit phase happens which means first child Component did mount then second child and so on and afterwards parent Component did mount. 

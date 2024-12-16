@@ -1,7 +1,6 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+// import React from "react";
+// import ReactDOM from "react-dom/client";
 
-const root = ReactDOM.createRoot(document.getElementById("root"))
 
 const heading = React.createElement("div", { id: "parent" },
     React.createElement("div", { id: "child" },
@@ -9,6 +8,8 @@ const heading = React.createElement("div", { id: "parent" },
 
 // React.createElement is object -> which HTML(Browsers understands)
 console.log(heading);
+
+const root = ReactDOM.createRoot(document.getElementById("root"))
 
 root.render(heading)
 
@@ -29,4 +30,3 @@ console.log(heading2);
 root2.render(heading2) //if any tags are already present inside the root tag, the render will replace the tag with the new tags. 
 
 // JSX
-
