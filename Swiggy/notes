@@ -16,6 +16,7 @@ setListOfRestaurants(json?.data?.success?.cards[4]?.gridWidget?.gridElements?.in
 
 - config driven UI: All the UI is driven by the config (data) the data can be different for any circumstances, we can control the UI from the Backend.(specially used for different locations different data)
 
+<!-- key while looping -->
 - why key is important when using map: when components have childrens they have same level components they should be uniquely represented, because when we do not use key property react does not get to know which new set of data is addes in the array and it will re-render all the data which is not a good practice for performance and optimization, that is why key is important so that react should know which data is newly added and only render that set of data.
 
 - why using index as a key is a bad practice: It works fine as soon as we add a new child component, react gets confused about which properties belonged to which map component. so key={index} is not recommended itself by react official.

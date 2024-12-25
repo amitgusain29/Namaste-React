@@ -12,14 +12,14 @@ const Heading = () => (
 );
 
 // JSX Attributes
-{/* <div data-custom-attribute="someValue">Custom Attribute</div> */}
-{/* <div className="container"></div> */}
-{/* <label htmlFor="name">Name:</label> */}
-{/* <input type="checkbox" checked={true} /> */}
-{/* <button disabled={true}>Submit</button> */}
+{/* <div data-custom-attribute="someValue">Custom Attribute</div> */ }
+{/* <div className="container"></div> */ }
+{/* <label htmlFor="name">Name:</label> */ }
+{/* <input type="checkbox" checked={true} /> */ }
+{/* <button disabled={true}>Submit</button> */ }
 
 // const message = "Hello";
-{/* <input value={message} /> */}
+{/* <input value={message} /> */ }
 
 
 // const divStyle = {
@@ -29,7 +29,7 @@ const Heading = () => (
 //   <div style={divStyle}></div>
 
 
-{/* <button onClick={handleClick}>Click Me</button> */}
+{/* <button onClick={handleClick}>Click Me</button> */ }
 
 
 // Spread attributes
@@ -39,12 +39,12 @@ const Heading = () => (
 //     placeholder: "Enter your name",
 //   };
 //   <input {...props} />
-  
+
 
 // const userName = "John";
 // <h1>Hello, {userName}!</h1>
 
-  
+
 
 // React Component
 // 1. Class based component - OLD
@@ -61,8 +61,17 @@ const HeadingComponent = () => {
 
 const HeadingComponent2 = () => <h1>Namaste React Functional Component</h1>
 
+const HeadingComponent_2 = function () {
+    return <h1>Namaste React Functional Component</h1>
+}
 
-// component composition: When composing to components in one another is known as component composition.
+const HeadingComponent__2 = function () {
+    return (
+        <h1>Namaste React Functional Component</h1>
+    )
+}
+
+// component composition: When composing two components in one another is known as component composition.
 const HeadingComponent3 = () => (
     <div id="container">
         <Heading />
@@ -75,4 +84,5 @@ const root = ReactDOM.createRoot(document.getElementById("root"))
 
 // if the variable is in this <variable/> type of tags only then babel knows it and understands it. 
 root.render(<HeadingComponent3 />)
+
 
