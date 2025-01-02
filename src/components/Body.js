@@ -20,7 +20,7 @@ const Body = () => {
 
         const json = await data.json();
 
-        console.log(json); 
+        console.log(json);
 
         // Optional Chaining
         setListOfRestaurants(json?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
@@ -33,6 +33,7 @@ const Body = () => {
                 <div className="search">
                     <input placeholder="Search for restaurants and food" type="text" className="search-box" value={searchText} onChange={(e) => {
                         setSearchText(e.target.value)
+
                     }} />
                     <button className="search-btn" onClick={() => {
                         const filteredRestaurant = ListOfRestaurants.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
@@ -46,7 +47,7 @@ const Body = () => {
                 }}>Top Rated Restaurants</button>
             </div>
 
-
+ 
             <div className="res-container">
                 {filteredRestaurant.map((restaurant) => (
                     <Link key={restaurant.info.id} to={"/restaurants/" + restaurant.info.id}><RestaurantCard resData={restaurant} /></Link>

@@ -17,7 +17,7 @@
 - Error handling
 - Https
 - Tree shaking - removes unused code
-- Different devlopment and production bundles
+- Different for devlopment and production bundles
 
 <!-- Namaste Food -->
 

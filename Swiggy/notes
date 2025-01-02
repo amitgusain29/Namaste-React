@@ -17,7 +17,7 @@ setListOfRestaurants(json?.data?.success?.cards[4]?.gridWidget?.gridElements?.in
 - config driven UI: All the UI is driven by the config (data) the data can be different for any circumstances, we can control the UI from the Backend.(specially used for different locations different data)
 
 <!-- key while looping -->
-- why key is important when using map: when components have childrens they have same level components they should be uniquely represented, because when we do not use key property react does not get to know which new set of data is addes in the array and it will re-render all the data which is not a good practice for performance and optimization, that is why key is important so that react should know which data is newly added and only render that set of data.
+- why key is important when using map: when components have childrens they have same level components they should be uniquely represented, because when we do not use key property react does not get to know which new set of data is added in the array and it will re-render all the data which is not a good practice for performance and optimization, that is why key is important so that react should know which data is newly added and only render that set of data.
 
 - why using index as a key is a bad practice: It works fine as soon as we add a new child component, react gets confused about which properties belonged to which map component. so key={index} is not recommended itself by react official.
 
@@ -33,8 +33,10 @@ setListOfRestaurants(json?.data?.success?.cards[4]?.gridWidget?.gridElements?.in
 
 2. when you have to export multiple things in a components file than we use named export. It is basically writing export in front of const or variable, because there cannot be two default in a file.
 
-if we use namd export then while importing it should be like this,
+if we use named export then while importing it should be like this,
 import {CDN_URL} from "../utils/constants"
+
+And also we can use name export and default export in the same file.
 
 <!-- React Hooks -->
 
@@ -42,6 +44,7 @@ import {CDN_URL} from "../utils/constants"
 
 - useState() - Superpowerful State variables in react
 - useEffect()
+
 
 <!-- import useState -->
 
@@ -66,7 +69,7 @@ const setListItems = arr[1]
 
 let listOfRestaurants = []
 
-<!-- whenever a state variable updates, react re-render the components  -->
+<!-- whenever a state variable updates, react rerenders the components  -->
 
 <!-- React keeps our UI sync with data layer in data layer when you have a local state variable as soon as your data layer updates, your UI layer will update by re-rendering the components in a very less code and optimized way, also with super fast DOM operations and efficiency -->
 
@@ -78,11 +81,15 @@ When something changes in the UI is known as reconciliation,The algorithm React 
 
 <!-- Virtual DOM -->
 
-Virtual DOM: Virtal DOM is a representation of actual DOM. It is kind of nothing but a JS object.
-
+Virtual DOM: Virtal DOM is a representation of actual DOM. It is kind of nothing but a JS object. React is doing Efficient Dom manipulation. 
+ 
 <!-- Diffing Algorithm -->
 
 Diffing Algorithm finds out the difference between updated virtual dom and previous virtual dom, and then actually updates the dom on every render cycle.
+
+<!-- React Fiber -->
+
+Incremental Rendering: The ability to split rendering work into chunks and spread out over multiple frames.
 
 <-- useEffect() -->
 
@@ -94,13 +101,13 @@ If dependency array is [btnNameReact] => called everytime btnNameReact is update
 
 // Optional Chaining
 setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-
+   
 The optional chaining (?.) operator accesses an object's property or calls a function. If the object accessed or function called using this operator is undefined or null, the expression short circuits and evaluates to undefined instead of throwing an error.
 
 // Conditional Rendering
 if (ListOfRestaurants.length === 0) {
-return <Shimmer />
-}
+return <Shimmer /> 
+}  
 
 In React, you can create distinct components that encapsulate behavior you need. Then, you can render only some of them, depending on the state of your application.
 
@@ -119,6 +126,7 @@ whenever state variables update, react triggers a reconciliation cycle(re-render
 <!-- cors plugin -->
 
 CORS: Cross Origin Resources Sharing
+It bypasses the cors issue.
 
 .Use Another Public CORS Proxy
 There are other public CORS proxies that you can try, such as:
