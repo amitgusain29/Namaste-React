@@ -12,7 +12,7 @@ const Body = () => {
     const [searchText, setSearchText] = useState("")
 
     useEffect(() => {
-        fetchData();
+        fetchData();  
     }, []);
 
     const fetchData = async () => {
@@ -33,7 +33,6 @@ const Body = () => {
                 <div className="search">
                     <input placeholder="Search for restaurants and food" type="text" className="search-box" value={searchText} onChange={(e) => {
                         setSearchText(e.target.value)
-
                     }} />
                     <button className="search-btn" onClick={() => {
                         const filteredRestaurant = ListOfRestaurants.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
@@ -47,7 +46,7 @@ const Body = () => {
                 }}>Top Rated Restaurants</button>
             </div>
 
- 
+
             <div className="res-container">
                 {filteredRestaurant.map((restaurant) => (
                     <Link key={restaurant.info.id} to={"/restaurants/" + restaurant.info.id}><RestaurantCard resData={restaurant} /></Link>

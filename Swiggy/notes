@@ -12,11 +12,12 @@ https://www.swiggy.com/dapi/restaurants/list/v5/?lat=12.9351929&lng=77.624480699
 
 https://www.swiggy.com/mapi/homepage/getCards?lat=19.306523036370468&lng=72.86280434578657&page_type=DESKTOP_WEB_LISTING
 
-setListOfRestaurants(json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
+setListOfRestaurants(json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWit hStyle?.restaurants)
 
 - config driven UI: All the UI is driven by the config (data) the data can be different for any circumstances, we can control the UI from the Backend.(specially used for different locations different data)
 
 <!-- key while looping -->
+
 - why key is important when using map: when components have childrens they have same level components they should be uniquely represented, because when we do not use key property react does not get to know which new set of data is added in the array and it will re-render all the data which is not a good practice for performance and optimization, that is why key is important so that react should know which data is newly added and only render that set of data.
 
 - why using index as a key is a bad practice: It works fine as soon as we add a new child component, react gets confused about which properties belonged to which map component. so key={index} is not recommended itself by react official.
@@ -44,7 +45,6 @@ And also we can use name export and default export in the same file.
 
 - useState() - Superpowerful State variables in react
 - useEffect()
-
 
 <!-- import useState -->
 
@@ -81,8 +81,8 @@ When something changes in the UI is known as reconciliation,The algorithm React 
 
 <!-- Virtual DOM -->
 
-Virtual DOM: Virtal DOM is a representation of actual DOM. It is kind of nothing but a JS object. React is doing Efficient Dom manipulation. 
- 
+Virtual DOM: Virtal DOM is a representation of actual DOM. It is kind of nothing but a JS object. React is doing Efficient Dom manipulation.
+
 <!-- Diffing Algorithm -->
 
 Diffing Algorithm finds out the difference between updated virtual dom and previous virtual dom, and then actually updates the dom on every render cycle.
@@ -101,13 +101,13 @@ If dependency array is [btnNameReact] => called everytime btnNameReact is update
 
 // Optional Chaining
 setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-   
+
 The optional chaining (?.) operator accesses an object's property or calls a function. If the object accessed or function called using this operator is undefined or null, the expression short circuits and evaluates to undefined instead of throwing an error.
 
 // Conditional Rendering
 if (ListOfRestaurants.length === 0) {
-return <Shimmer /> 
-}  
+return <Shimmer />
+}
 
 In React, you can create distinct components that encapsulate behavior you need. Then, you can render only some of them, depending on the state of your application.
 
@@ -142,15 +142,25 @@ https://thingproxy.freeboard.io/fetch/
 
 <!-- Routes -->
 
+npm i react-router-dom
+
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 root.render(<RouterProvider router={AppRouter} />)
+
+<!-- Rafce -->
+
+It is a shortcut to create boilerplate component.
 
 <!-- Error page -->
 
 import Error from "./components/Error";
 
 errorElement: <Error />
+
+<!-- useRouteError -->
+
+import {useRouteError} from "react-router-dom";
 
 <!-- children routes -->
 
@@ -194,7 +204,8 @@ Server-side routing is a traditional approach to handling routes in web applicat
 
 <!-- Link  -->
 
-// Link is a wrapper over anchor tag
+// Link is a wrapper over anchor tag.
+// Using Link instead of anchor is beneficial coz it won't reload the whole page.
 
 <!-- class components -->
 
@@ -204,7 +215,7 @@ Server-side routing is a traditional approach to handling routes in web applicat
 
 <!-- React.component / Component -->
 
-//if used React.Component then the import should be import react from "react";
+//if used React.Component then the import should be import React from "react";
 
 // if used Component then the import will be import {Component} from "react";
 
@@ -214,8 +225,7 @@ Server-side routing is a traditional approach to handling routes in web applicat
 
 <!-- Parent and child in class component -->
 
-//  The sequence goes like this, First the Parent constructor is called then the Parent render is called as soon the parent render is called it will call child constructor and child render after that now the component is mounted so the ComponentDidMount is called of the Child and afterwards Parent's  ComponentDidMount will be called.
-
+// The sequence goes like this, First the Parent constructor is called then the Parent render is called as soon the parent render is called it will call child constructor and child render after that now the component is mounted so the ComponentDidMount is called of the Child and afterwards Parent's ComponentDidMount will be called.
 
 <!-- LifeCycle -->
 
@@ -223,4 +233,168 @@ Server-side routing is a traditional approach to handling routes in web applicat
 
 // Commit Phase: Once the commit phase starts react tries to update the dom and dom manipulation is the most expensive thing when we are updating a component.
 
-// Render phase is just virtual dom it finds the diff and when it tries to update the dom it batches all the children's and later on commit phase happens which means first child Component did mount then second child and so on and afterwards parent Component did mount. 
+// Render phase is just virtual dom it finds the diff and when it tries to update the dom it batches all the children's and later on commit phase happens which means first child Component did mount then second child and so on and afterwards parent Component did mount.(it is done like this for optimization and Dom is expensive in time so batch the low phase(render) and high phase(render))
+
+<!-- we can use async in componentDidMount() -->
+
+<!--
+render phase
+
+-Parent Constructor
+ -Parent render
+
+   -First Constructor
+    -First Render
+
+    -Second Constructor
+    -Second Render
+
+commit phase
+<DOM UPDATED - IN SINGLE BATCH>
+
+    -First ComponentDidMount
+     -Second ComponentDidMount
+
+ -Parent ComponentDidMount
+-->
+
+// Mounting Cycle and Update cycle
+
+<!--
+    -- Mounting Cycle--
+
+    Constructor(dummy)
+    Render(dummy)
+        <HTML Dummy>
+        Component Did Mount
+        <API call>
+        this.setState -> State variable is updated
+
+        --UPDATE Cycle--
+
+        render(API data)
+        <HTML (new API data)>
+        Component did Update
+
+        -- UmMounting--
+
+        componentWillUnMount() - It happens when we leave the page.
+
+ -->
+
+// ComponentDidUpdate
+
+// componentDidUpdate (prevProps, prevState) {
+// if (
+// this.state.count prevState.count ||
+// this.state.count prevState.count
+// ) {
+code
+// console.log("Component Did Update");
+// }
+
+now what we do in useEffect((=>{
+
+},[]))
+Earlier coders use to do that on Component did update. with if else statement that is why in currect useEffect we have array as a dependency array.
+
+<!-- componentDidMount -->
+
+In here if we use a setInterval of 1000ms so after every 1s the setInterval will trigger so we have clear this up so for that we use componentWillUnmount, though it is a single page application(spa) it will still work when we go to other component(page) so for that we have to clear the interval or stop the previous work, if we don't then it will affect the performance
+
+componentWillUnmount(){
+clearInterval()
+}
+
+// And in functional component we use useEffect
+
+useEffect(() => {
+const timer = setInterval(() => {
+console.log("Function Interval");
+}, 1000)
+
+        return () => {
+            clearInterval(timer)
+            console.log("Function Clear");
+        }
+    }, [])
+
+and return is used to clear up the work.
+
+return ()=>{
+
+}
+
+<!-- Unmounting Process -->
+
+Even when all components are class components, React’s unmounting process still traverses backwards.
+This order ensures proper cleanup, avoids dependency conflicts, and follows a Last-In-First-Out (LIFO) model.
+The behavior is consistent for all types of components in React.
+
+<!-- Constructor() and super() -->
+
+In a React class component like class User extends React.Component, the use of constructor(props) and super(props) is tied to JavaScript’s class-based inheritance mechanism and helps initialize the component properly. Let’s break down why they are used:
+
+1. constructor(props)
+   The constructor method in a class is a special function used to initialize an object’s state and bind event handlers when a component is created. It is called before the component is mounted.
+
+<!-- Why use constructor(props)? -->
+
+If you need to initialize state or bind custom methods to this, you use a constructor.
+The props parameter allows you to access this.props in the constructor. 2. super(props)
+super(props) calls the parent class’s constructor, in this case, React.Component. It is required when defining a constructor in a derived class to properly inherit and initialize the component’s behavior.
+
+<!-- Why is super(props) necessary? -->
+
+Without calling super(props), this would be undefined when trying to access this.props or this.state in the constructor.
+super() initializes the React.Component class, allowing the child class to use the methods and properties provided by React.
+
+Key Points
+
+1.super(props) passes the props to the base class (React.Component), ensuring that this.props is correctly initialized.
+2.If you define a constructor, you must call super(props) before accessing this in your constructor, or you’ll get an error.
+
+<!-- When Do You Need a Constructor? -->
+
+If you need to set initial state or bind event handlers:
+
+Otherwise, if you don’t use state initialization or custom bindings, you can omit the constructor entirely.
+
+<!-- why can we use async in async componentDidMount(){} -->
+
+We can use async in the componentDidMount() method of a class-based React component because JavaScript supports asynchronous functions within class methods, allowing us to handle asynchronous operations like fetching data from APIs more conveniently.
+
+<!-- Why Use async in componentDidMount()? -->
+
+1.Fetching Data Asynchronously:
+
+componentDidMount() is commonly used to perform side effects, such as making API requests after a component has been mounted to the DOM. These operations are asynchronous, and using async/await simplifies handling them.
+
+2.Cleaner and More Readable Code:
+
+Using async/await avoids deeply nested .then() chains, making the code easier to read and maintain.
+
+<!-- async in componentDidUpdate() -->
+
+Yes, you can use async in componentDidUpdate().
+Always conditionally trigger side effects to prevent infinite loops.
+componentDidUpdate() is useful for responding to changes in props or state, and async/await makes handling asynchronous tasks more readable.
+
+<!-- Why cannot use async in useEffect as useEffect(async()=>{}) -->
+
+1.This results in a warning or error because useEffect expects a cleanup function or undefined to be returned, and using async makes the function return a Promise instead of a cleanup function. Let’s explore why this happens and how to handle it correctly.
+
+<!-- Why Can’t We Use async Directly in useEffect? -->
+
+- useEffect Expects a Cleanup Function
+
+  1.The callback function you pass to useEffect may return a cleanup function to handle side effects like removing event listeners or clearing timers.
+  2.An async function always returns a Promise, not a function.
+  This violates the expectation of returning a cleanup function or undefined.
+
+- Returning a Promise Confuses React
+  1.React uses the return value of useEffect to know if cleanup is needed. A Promise is not a valid cleanup function.
+
+<!-- Correct Way to Use async with useEffect: -->
+
+Instead of marking the useEffect callback itself as async, define an async function inside the useEffect:

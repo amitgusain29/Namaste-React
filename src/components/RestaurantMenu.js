@@ -20,7 +20,7 @@ const RestaurantMenu = () => {
 
     if (resInfo === null) return <Shimmer />;
 
-    const { name, cuisines, costForTwoMessage } = resInfo?.cards[2]?.card?.card?.info || {};
+    const { name, cuisines, costForTwoMessage, avgRating } = resInfo?.cards[2]?.card?.card?.info || {};
 
     const mainCard = resInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
     const fallbackCard = mainCard?.categories?.[0];
@@ -31,8 +31,8 @@ const RestaurantMenu = () => {
     return (
         <div className="menu">
             <h1>{name}</h1>
-            <h3>{cuisines?.join(", ")}</h3>
-            <h3>{costForTwoMessage}</h3>
+            <p>{cuisines?.join(", ")} - {costForTwoMessage}</p>
+            <h3>{avgRating}</h3>
             <h2>Menu</h2>
             <h2>{title}</h2>
 

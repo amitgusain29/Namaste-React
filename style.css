@@ -98,3 +98,8 @@
 .search-box {
   width: 100%;
 }
+
+.user-card {
+  padding: 10px;
+  border: 2px solid black;
+}
