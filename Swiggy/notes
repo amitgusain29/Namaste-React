@@ -366,7 +366,7 @@ We can use async in the componentDidMount() method of a class-based React compon
 
 <!-- Why Use async in componentDidMount()? -->
 
-1.Fetching Data Asynchronously:
+1.Fetching Data Asynchronously:  
 
 componentDidMount() is commonly used to perform side effects, such as making API requests after a component has been mounted to the DOM. These operations are asynchronous, and using async/await simplifies handling them.
 
@@ -398,3 +398,97 @@ componentDidUpdate() is useful for responding to changes in props or state, and 
 <!-- Correct Way to Use async with useEffect: -->
 
 Instead of marking the useEffect callback itself as async, define an async function inside the useEffect:
+
+<!-- Single responsibility principle -->
+
+The Single Responsibility Principle (SRP) in software design states that a module, class, or component should have only one reason to change, meaning it should focus on a single responsibility or functionality. In React, SRP can help improve readability, maintainability, and scalability by making components focused on specific tasks.
+
+<!-- Custom hooks -->
+
+- It makes code more readable, modular and more reusable.
+
+<!-- Linters -->
+
+-A linter is a tool that analyzes your code to identify potential errors, enforce coding standards, and suggest improvements. It helps maintain code quality and consistency across a project by catching syntax issues, stylistic errors, and potential bugs before runtime.
+
+<!-- Key Features of Linters -->
+
+Error Detection: Catches syntax and logical errors.
+Code Style Enforcement: Ensures adherence to coding conventions (like indentation, naming conventions, etc.).
+Warnings for Best Practices: Provides suggestions to improve code readability and performance. 
+
+<!-- Dynamic bundling, Dhunking, Code splitting, Lazy Loading, On demand Loading, Dynamic import -->
+
+
+Chunking or dynamic bundling in React (and other modern web applications) refers to the technique of splitting the JavaScript bundle into smaller, more manageable pieces or chunks that are loaded as needed. This technique is crucial for performance optimization and user experience.
+
+<!-- Why Chunking or Dynamic Bundling Is Important in React -->
+
+Improves Initial Load Time (Performance Optimization)
+
+Without chunking, all JavaScript code for the entire application is bundled into one large file. This large file can take a long time to load, increasing the initial page load time.
+By splitting the bundle, only the code necessary for rendering the current page or component is loaded initially. Additional chunks are loaded dynamically as the user navigates through the app.
+
+Result: Faster initial rendering and better perceived performance.
+Efficient Use of Network Resources
+
+Chunking ensures that only the code relevant to the user’s current action is sent over the network. This reduces unnecessary data transfer.
+Example: If a user never visits a certain route, the corresponding JavaScript file for that route won’t be downloaded.
+Code Splitting for Lazy Loading
+
+React supports lazy loading components using React.lazy() and Suspense. This leverages chunking by dynamically importing code only when needed.
+
+<!-- lazy loading -->
+
+Inside lazy() function, import() is also a function.
+
+<!-- CSS -->
+
+<!-- 1. SASS (Syntactically Awesome Stylesheets) -->
+Type: CSS Preprocessor
+Purpose: Extends CSS with variables, nesting, and more.
+Syntax: Indentation-based (older)
+
+<!-- 2. SCSS (Sassy CSS) -->
+Type: CSS Preprocessor
+Purpose: Same as SASS but uses CSS-like syntax with curly braces and semicolons.
+Syntax: CSS-compatible
+
+<!-- 3. Styled Components -->
+Type: CSS-in-JS Library for React
+Purpose: Write scoped styles as JavaScript variables using template literals.
+
+<!-- 4. Chakra UI -->
+Type: React Component Library
+Purpose: Provides pre-built, customizable UI components with built-in accessibility and theming.
+
+<!-- 5. Material UI (MUI) -->
+Type: React Component Library
+Purpose: Implements Google’s Material Design with ready-to-use components.
+
+<!-- 6. Bootstrap -->
+Type: CSS Framework
+Purpose: Provides pre-styled components and a responsive grid system.
+
+<!-- 7. Tailwind CSS -->
+Type: Utility-First CSS Framework
+Purpose: Uses utility classes to style elements directly in HTML/JSX.
+
+
+<!-- Summary -->
+SASS/SCSS are great for custom stylesheets with enhanced CSS features.
+Styled Components integrates styles directly with React components.
+Chakra UI and Material UI are full-featured component libraries for fast UI development.
+Bootstrap provides a simple, responsive grid and pre-styled components.
+Tailwind CSS offers a utility-first approach for flexible, atomic design.
+Choose based on project needs, customization, and speed requirements.
+
+
+
+
+
+
+
+
+
+

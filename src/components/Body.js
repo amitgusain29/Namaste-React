@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
     // Local State Variable - Super Powerful variable
@@ -12,7 +13,7 @@ const Body = () => {
     const [searchText, setSearchText] = useState("")
 
     useEffect(() => {
-        fetchData();  
+        fetchData();
     }, []);
 
     const fetchData = async () => {
@@ -26,6 +27,16 @@ const Body = () => {
         setListOfRestaurants(json?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
         setFilteredRestaurant(json?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
     }
+
+
+    const onlineStatus = useOnlineStatus()
+
+    if (onlineStatus === false)
+        return (
+            <h1>
+                Looks like you're offline, Please Check your internet connection.
+            </h1>
+        )
 
     return (ListOfRestaurants || []).length === 0 ? <Shimmer /> : (
         <div className="body">
@@ -45,7 +56,6 @@ const Body = () => {
                     setFilteredRestaurant(filteredList)
                 }}>Top Rated Restaurants</button>
             </div>
-
 
             <div className="res-container">
                 {filteredRestaurant.map((restaurant) => (
