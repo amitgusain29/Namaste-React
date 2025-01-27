@@ -366,7 +366,7 @@ We can use async in the componentDidMount() method of a class-based React compon
 
 <!-- Why Use async in componentDidMount()? -->
 
-1.Fetching Data Asynchronously:  
+1.Fetching Data Asynchronously:
 
 componentDidMount() is commonly used to perform side effects, such as making API requests after a component has been mounted to the DOM. These operations are asynchronous, and using async/await simplifies handling them.
 
@@ -415,10 +415,9 @@ The Single Responsibility Principle (SRP) in software design states that a modul
 
 Error Detection: Catches syntax and logical errors.
 Code Style Enforcement: Ensures adherence to coding conventions (like indentation, naming conventions, etc.).
-Warnings for Best Practices: Provides suggestions to improve code readability and performance. 
+Warnings for Best Practices: Provides suggestions to improve code readability and performance.
 
 <!-- Dynamic bundling, Dhunking, Code splitting, Lazy Loading, On demand Loading, Dynamic import -->
-
 
 Chunking or dynamic bundling in React (and other modern web applications) refers to the technique of splitting the JavaScript bundle into smaller, more manageable pieces or chunks that are loaded as needed. This technique is crucial for performance optimization and user experience.
 
@@ -445,37 +444,44 @@ Inside lazy() function, import() is also a function.
 <!-- CSS -->
 
 <!-- 1. SASS (Syntactically Awesome Stylesheets) -->
+
 Type: CSS Preprocessor
 Purpose: Extends CSS with variables, nesting, and more.
 Syntax: Indentation-based (older)
 
 <!-- 2. SCSS (Sassy CSS) -->
+
 Type: CSS Preprocessor
 Purpose: Same as SASS but uses CSS-like syntax with curly braces and semicolons.
 Syntax: CSS-compatible
 
 <!-- 3. Styled Components -->
+
 Type: CSS-in-JS Library for React
 Purpose: Write scoped styles as JavaScript variables using template literals.
 
 <!-- 4. Chakra UI -->
+
 Type: React Component Library
 Purpose: Provides pre-built, customizable UI components with built-in accessibility and theming.
 
 <!-- 5. Material UI (MUI) -->
+
 Type: React Component Library
 Purpose: Implements Google’s Material Design with ready-to-use components.
 
 <!-- 6. Bootstrap -->
+
 Type: CSS Framework
 Purpose: Provides pre-styled components and a responsive grid system.
 
 <!-- 7. Tailwind CSS -->
+
 Type: Utility-First CSS Framework
 Purpose: Uses utility classes to style elements directly in HTML/JSX.
 
-
 <!-- Summary -->
+
 SASS/SCSS are great for custom stylesheets with enhanced CSS features.
 Styled Components integrates styles directly with React components.
 Chakra UI and Material UI are full-featured component libraries for fast UI development.
@@ -483,12 +489,61 @@ Bootstrap provides a simple, responsive grid and pre-styled components.
 Tailwind CSS offers a utility-first approach for flexible, atomic design.
 Choose based on project needs, customization, and speed requirements.
 
+<!-- Tailwind -->
 
+If you are using m-4 hundred times in the project so it will import one class out of it that is why tailwind is lightweight.
 
+<!-- Higher Order components -->
 
+Higher order component is a function that takes a component enhances and modifies it and returns that back new component
 
+<!-- Lifting the state up -->
 
+In React, lifting state up refers to the pattern of moving state management from child components to their parent component when multiple components need access to the same state. This pattern promotes better data flow and makes it easier to maintain consistency across components.
 
+<!-- props drilling -->
 
+Props drilling in React refers to the process of passing data (via props) from a parent component to deeply nested child components, even if only intermediate components don’t need that data. This happens when you want to share data between components that aren’t directly related.
 
+<!-- useContext -->
 
+useContext is a hook in React that allows components to access and consume context values directly without relying on props drilling. It simplifies the management of global or shared state within a React application.
+
+<!-- When to Use useContext -->
+
+When you need to avoid passing props down multiple levels (props drilling).
+When you want to share data globally across deeply nested components.
+
+<!-- UserContext.Consumer / Component.Consumer -->
+
+<Component.Consumer> <Component.Consumer/> in React is a way to consume context values before the introduction of the useContext hook in React 16.8. It allows functional or class components to access values from a context without passing them through props directly.
+
+<!-- When to Use <Component.Consumer> -->
+
+You would use <Component.Consumer> <Component.Consumer/> when working with React versions that do not support hooks or if you prefer using render prop patterns over hooks for consuming context.
+
+Just like useContext we can use as many time we want in class based components.
+
+<!-- UserContext.Provider / Componet.Provider -->
+
+In React, <Component.Provider> <Component.Provider/> is used as part of the Context API to provide a context value to components within its subtree. It allows child components to access shared data without prop drilling (passing props down manually through every component level).
+
+<!-- When to Use <Component.Provider> -->
+
+To share global state (such as user authentication, themes, or language settings) across components.
+To avoid passing props down through deeply nested components.
+
+We can modify it in a way such as giving access to required sections or Components 
+
+<!-- Redux Toolkit -->
+
+- Install @reduxjs/toolkit and react-redux
+- Build our store
+- Connect our store to our app
+- Slice (CartSlice)
+- dispatch(action)
+- Selector
+
+<!-- Reducer -->
+
+- A reducer can be combination of small reducers.
