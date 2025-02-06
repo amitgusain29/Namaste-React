@@ -417,7 +417,7 @@ Error Detection: Catches syntax and logical errors.
 Code Style Enforcement: Ensures adherence to coding conventions (like indentation, naming conventions, etc.).
 Warnings for Best Practices: Provides suggestions to improve code readability and performance.
 
-<!-- Dynamic bundling, Dhunking, Code splitting, Lazy Loading, On demand Loading, Dynamic import -->
+<!-- Dynamic bundling, Chunking, Code splitting, Lazy Loading, On demand Loading, Dynamic import -->
 
 Chunking or dynamic bundling in React (and other modern web applications) refers to the technique of splitting the JavaScript bundle into smaller, more manageable pieces or chunks that are loaded as needed. This technique is crucial for performance optimization and user experience.
 
@@ -533,7 +533,7 @@ In React, <Component.Provider> <Component.Provider/> is used as part of the Cont
 To share global state (such as user authentication, themes, or language settings) across components.
 To avoid passing props down through deeply nested components.
 
-We can modify it in a way such as giving access to required sections or Components 
+We can modify it in a way such as giving access to required sections or Components
 
 <!-- Redux Toolkit -->
 
@@ -546,4 +546,88 @@ We can modify it in a way such as giving access to required sections or Componen
 
 <!-- Reducer -->
 
-- A reducer can be combination of small reducers.
+- A slice reducer can be combination of small reducers.
+
+<!-- Slice Reducers -->
+
+Vanilla(older) Redux => Don't mutate state, returning was mandatory
+
+const newState = [...state]
+newState.items.push(action.payload)
+return newState
+
+- Redux Toolkit
+  We have to mutate the state
+
+Redux Toolkit is creating immutable state on its own bts but not asking developers to do it.
+
+<!-- Immer -->
+
+- The Immer library is a JavaScript library that simplifies handling immutable state by allowing you to work with state using a mutable syntax. Immer automatically creates the immutable state for you under the hood, so you don’t have to worry about manually cloning and updating nested structures.
+
+- Redux Toolkit is using Immer bts(behind the scenes) for us.
+
+ <!-- Types of testing (Developer)-->
+
+- Unit Testing (Unit testing is testing one component out of your project in isolation environment)
+- Integration Testing
+- End To End testing - E2E Testing
+
+## Setting up Testing in our app.
+
+## <!-- React Testing Library -->
+
+- React Testing library builds on top of DOM testing library by adding APIs for working with React Components.
+
+- Project created with Create React App alredy have React Testing Library init.
+
+- React Testing Library uses Jest.js, Jest is a delightful javascript testing framework, and jest is being used along with babel so we need to add additional babel dependencies
+
+- React Testing Library command : npm i -D @testing-library/react
+
+- Jest Install command : npm i -D jest
+
+- babel dependencies: npm install --save-dev babel-jest @babel/core @babel/preset-env
+
+- now configure babel: configure code in the jest web.
+
+- Parcel uses babel and has its own configuration in our code and now we are trying to install babel for jest which will conflict so we have to change parcel's behaviour.
+
+While Parcel includes transpilation by default, you may still need to use Babel with other tools such as test runners like Jest, and linters like ESLint. If this is the case, you may not be able to completely remove your Babel config. You can make Parcel ignore your Babel config instead.
+
+- Once .parcelrc is created the parcel's babel will not conflict and our babel.config.js will be used.
+
+- Now we have to make a jest configuration. Command: npx jest --init
+
+- jsdom - when we write test cases we don't run them on browsers so they need a environment so jsdom is like a browser which give features like browser but not a browser, It parses and interacts with assembled HTML just like a browser where we can run the test cases.
+
+- jsdom library: npm install --save-dev jest-environment-jsdom or npm i -D jest-environment-jsdom
+
+<!-- test folder name -->
+
+main folder __tests__
+
+__tests__ two underscore(__) at the start and in the end is known as dunder method.
+
+- Any file inside this folder will be testing files and the naming convention should be .test.js/.test.ts/.jest.js/.jest.ts
+
+.js is javascript and ts is typescript.
+
+- when we try to write jsx code in jsdom it won't work so we have to install babel/preset-react so command is : npm i -D @babel/preset-react now we have to include @babel/preset-react inside our babel.config.js like this ['@babel/preset-react', { runtime: "automatic" }]
+
+- now we have to install @testing-library/jest-dom : npm i -D @testing-library/jest-dom
+
+<!-- describe -->
+
+describe("",()=>{
+test()
+test()
+test()
+it()
+it()
+it()
+})
+
+It is for grouping of test cases just a convention, we can use many describe in the test case and we can use describe inside describe.
+
+When we test our cases we can use test("",()=>) or it("",()=>) both are same, "it" is used because the comment on the it("should do this",()=>{}) is now readable and comment convention starts with should.

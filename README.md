@@ -35,3 +35,15 @@
 *   -Address
 *   -Contact
 */
+
+# Setting up testing in our app
+- Install React Testing library
+- Install jest
+- Install babel dependencies
+- Configure Babel
+- Configure parcel config file to disable default babel transpilation
+- Jest Configuration - npx jest --init
+- Install jsdom library
+- Install @babel/preset-react  - to work jsx in test cases
+- Include @babel/preset-react to our babel.config.js
+- Install @testing-library/jest-dom

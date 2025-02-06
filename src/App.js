@@ -19,27 +19,24 @@ const About = lazy(() => import("./components/About"))
 const AppLayout = () => {
 
     const [userName, setUserName] = useState()
-    const [userPassword, setUserPassword] = useState()
 
     // Authentication
     useEffect(() => {
         const data = {
             name: "Amit Gusain",
-            password: "123"
         }
         setUserName(data.name)
-        setUserPassword(data.password)
     }, [])
 
 
     return (
         <Provider store={appStore}>
-        <UserContext.Provider value={{ loggedInUser: userName, setUserName, password: userPassword, setUserPassword }}>
-            <div className="app">
-                <Header />
-                <Outlet />
-            </div >
-        </UserContext.Provider>
+            <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+                <div className="app">
+                    <Header />
+                    <Outlet />
+                </div >
+            </UserContext.Provider>
         </Provider>
     )
 }

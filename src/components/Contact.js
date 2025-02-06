@@ -1,21 +1,14 @@
 import { useState } from "react";
 
 const Contact = () => {
-    // Correct destructuring for useState
-    const [counter, setCounter] = useState(1);  // Initialized to 0 for counting
-
-    const addValue = () => {
-        setCounter(previous => previous + 1)
-        setCounter(previous => previous + 1)
-    }
-
     return (
-        <div>
-            <h1>Contact Us</h1>
-            <p>Current Count: {counter}</p>
-            <button onClick={addValue}>Count2: {counter}</button>
-            <br />
-            <button onClick={addValue}>Count1: {counter}</button>
+        <div className="text-center m-3">
+            <h1 className="font-bold  text-2xl">Contact Us Page</h1>
+            <form>
+                <input type="text" className="border border-black m-2 p-2" placeholder="Name" />
+                <input type="text" className="border border-black m-2 p-2" placeholder="Message" />
+                <button className="border borber-black bg-gray-400 p-2">Submit</button>
+            </form>
         </div>
     );
 }

@@ -15,7 +15,7 @@ const Body = () => {
 
     const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
-    const { loggedInUser, password, setUserName, setUserPassword } = useContext(UserContext)
+    const { loggedInUser, setUserName } = useContext(UserContext)
 
     useEffect(() => {
         fetchData();
@@ -67,9 +67,6 @@ const Body = () => {
                 <div className="m-4 px-1 p-4 flex items-center">
                     <label className="px-2">UserName:</label>
                     <input className="p-1 border border-black" value={loggedInUser} onChange={(e) => setUserName(e.target.value)} />
-                    <label className="px-2">Password:</label>
-                    <input className="p-1 border border-black" value={password} onChange={(e) => setUserPassword(e.target.value)} />
-
                 </div>
             </div>
 

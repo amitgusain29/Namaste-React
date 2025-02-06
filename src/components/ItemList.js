@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constants";
-import { addItem } from "../slices/cartSlice";
+import { addItem, removeItem } from "../slices/cartSlice";
 
-const ItemList = ({ items }) => {
+const ItemList = ({ items, showAddButton = true, showRemoveButton = false }) => {
     console.log(items);
 
     const dispatch = useDispatch();
@@ -10,6 +10,10 @@ const ItemList = ({ items }) => {
     const handleAddItem = (item) => {
         dispatch(addItem(item))
     }
+
+    const handleRemoveItem = () => {
+        dispatch(removeItem());
+    };
     return (
         <div>
             {items.map((item) => (
@@ -46,12 +50,18 @@ const ItemList = ({ items }) => {
                                 alt="Item"
                             />
                         )}
-                        <div className={`absolute ${item?.card?.info?.imageId ? 'bottom-0' : 'my-auto'} left-3.5 right-0 flex justify-center`}>
+                        {showAddButton && (<div className={`absolute ${item?.card?.info?.imageId ? 'bottom-0' : 'my-auto'} left-3.5 right-0 flex justify-center`}>
                             <button className="w-28 py-1.5 rounded-lg shadow-lg font-bold text-gray-500 text-md bg-white hover:bg-gray-300" onClick={() => handleAddItem(item)}>
                                 ADD
                             </button>
                         </div>
-
+                        )}
+                        {showRemoveButton && (<div className={`absolute ${item?.card?.info?.imageId ? 'bottom-0' : 'my-auto'} left-3.5 right-0 flex justify-center`}>
+                            <button className="w-28 py-1.5 rounded-lg shadow-lg font-bold text-white text-md bg-red-500 hover:bg-gray-300 hover:text-black" onClick={() => handleRemoveItem(item)}>
+                                Remove
+                            </button>
+                        </div>
+                        )}
                     </div>
 
                 </div>
