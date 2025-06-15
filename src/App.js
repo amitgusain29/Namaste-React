@@ -1,5 +1,6 @@
 import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
+import emailjs from 'emailjs-com';
 import Header from "./components/Header";
 import Body from "./components/Body";
 // import About from "./components/About";
@@ -11,9 +12,12 @@ import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
+import ContactForm from "./components/ContactForm"; // Import the form
 
+// Initialize EmailJS
+emailjs.init("wLG3s46BtoqVkveTz");
 
-const Grocery = lazy(() => import("./components/Grocery"))
+const Grocery = lazy(() => import("./components/ContactForm"))
 const About = lazy(() => import("./components/About"))
 
 const AppLayout = () => {
@@ -41,6 +45,9 @@ const AppLayout = () => {
     )
 }
 
+
+
+
 const AppRouter = createBrowserRouter([
     {
         path: "/",
@@ -57,9 +64,9 @@ const AppRouter = createBrowserRouter([
                 element: <Contact />,
             },
             {
-                path: "/grocery",
-                element: <Suspense fallback={<h1>Loading..</h1>}><Grocery /></Suspense>,
-            },
+                path: "/contactform",
+                element: <ContactForm />,  // Show ContactForm on Contact Page
+            },            
             {
                 path: "/restaurants/:resId",
                 element: <RestaurantMenu />,
