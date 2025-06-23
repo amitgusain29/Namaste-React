@@ -8,13 +8,21 @@
 </head>
 
 <body>
-    <div id="root"></div>
+    <div id="root">
+        <h1>hello</h1>
+    </div>
     <!-- What is CDN: A system of servers that speeds up the delivery of web content to users by storing it closer to them. -->
 
     <!-- What is crossroigin:  The crossorigin attribute in a script tag sets the mode of a request to an HTTP CORS Request. CORS stands for Cross-Origin Resource Sharing, and it allows a web page to request resources from another domain. -->
 
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script>
+        const heading = document.createElement('h1');
+        heading.innerHTML = "Hello World!"
+        const root = document.getElementById('root');
+        root.appendChild(heading)
+    </script>
 </body>
 
 </html>

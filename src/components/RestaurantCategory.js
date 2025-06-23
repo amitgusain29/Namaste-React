@@ -2,17 +2,15 @@ import { useState } from "react";
 import ItemList from "./ItemList";
 
 const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
-
-
     const handleClick = () => {
         setShowIndex();
     }
     return (
-        <div>
-            <div className="w-full bg-gray-50 shadow-lg p-4 mx-auto my-8 rounded-lg">
-                <div className="flex justify-between cursor-pointer" onClick={handleClick}>
-                    <span className="font-bold text-lg">{data?.title} ({data?.itemCards?.length})</span>
-                    <span>⬇️</span>
+        <div className="mb-4">
+            <div className="w-full bg-white shadow-lg border border-orange-200 p-4 mx-auto rounded-xl">
+                <div className="flex justify-between cursor-pointer items-center" onClick={handleClick}>
+                    <span className="font-bold text-lg text-orange-600">{data?.title} <span className="text-orange-400">({data?.itemCards?.length})</span></span>
+                    <span className="text-orange-500 text-xl">{showItems ? '▲' : '▼'}</span>
                 </div>
                 <div>
                     {showItems && <ItemList items={data?.itemCards} />}

@@ -65,7 +65,7 @@ function ContactForm() {
   };
 
   return (
-    <div className="max-w-[500px] mx-auto my-8 p-8 bg-white rounded-lg shadow-lg">
+    <div className="max-w-[500px] mx-auto my-8 p-8 bg-white rounded-lg shadow-lg border border-orange-200">
       <form onSubmit={sendEmail} className="flex flex-col gap-6">
         <div className="flex flex-col gap-2">
           <input 
@@ -75,7 +75,7 @@ function ContactForm() {
             onChange={handleChange} 
             placeholder="Your Name" 
             required 
-            className="p-3 border-2 border-gray-200 rounded-md text-base focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors"
+            className="p-3 border-2 border-orange-200 rounded-md text-base focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-colors"
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -89,7 +89,7 @@ function ContactForm() {
             className={`p-3 border-2 rounded-md text-base focus:outline-none focus:ring-2 transition-colors ${
               emailError 
                 ? 'border-red-500 focus:border-red-500 focus:ring-red-200' 
-                : 'border-gray-200 focus:border-blue-500 focus:ring-blue-200'
+                : 'border-orange-200 focus:border-orange-500 focus:ring-orange-200'
             }`}
           />
           {emailError && (
@@ -103,7 +103,7 @@ function ContactForm() {
             onChange={handleChange} 
             placeholder="Your Message" 
             required 
-            className="p-3 border-2 border-gray-200 rounded-md text-base min-h-[150px] resize-y focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors"
+            className="p-3 border-2 border-orange-200 rounded-md text-base min-h-[150px] resize-y focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-colors"
           />
         </div>
         <button 
@@ -112,7 +112,7 @@ function ContactForm() {
           className={`px-6 py-3 rounded-md text-base font-semibold text-white transition-colors ${
             isLoading || emailError
               ? 'bg-gray-400 cursor-not-allowed'
-              : 'bg-blue-500 hover:bg-blue-600'
+              : 'bg-orange-500 hover:bg-orange-600'
           }`}
         >
           {isLoading ? 'Sending...' : 'Send Message'}
@@ -123,7 +123,7 @@ function ContactForm() {
               ? 'bg-green-100 text-green-800 border border-green-200'
               : status.includes('Failed')
               ? 'bg-red-100 text-red-800 border border-red-200'
-              : 'bg-gray-100 text-gray-800 border border-gray-200'
+              : 'bg-orange-50 text-orange-800 border border-orange-200'
           }`}>
             {status}
           </p>

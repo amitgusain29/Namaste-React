@@ -12,7 +12,7 @@ import ReactDOM from "react-dom/client";
 
 // Babel is a javascript compiler, It transpiles JSX code to react code.
 
-// Babel: Babel transpiles ES6 code to a code that older browsers understand, babel is a npm package, that takes a piece of code and different type of code converts into others. 
+// Babel: Babel transpiles ES6 code to a code that older browsers understand, babel is a npm package, that takes a piece of code and converts into another code
 
 // Parses a code token by token and create a abstract syntax tree(AST) and then converts it is a huge algorithm.
 
@@ -24,7 +24,7 @@ const jsxHeading = <h1 id="heading" className="head" tabIndex="5">Namaste React 
 // </h1>);
 
 console.log(jsxHeading);
-
+    
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
 root.render(jsxHeading)
