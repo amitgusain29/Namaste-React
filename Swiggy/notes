@@ -79,15 +79,19 @@ let listOfRestaurants = []
 
 When something changes in the UI is known as reconciliation,The algorithm React uses to diff one tree with another to determine which parts need to be changed.A change in the data used to render a React app. Usually the result of `setState`. Eventually results in a re-render.
 
+Reconciliation is React's diffing algorithm. It compares the new virtual DOM with the previous one and determines:
+
 <!-- Virtual DOM -->
 
-Virtual DOM: Virtal DOM is a representation of actual DOM. It is kind of nothing but a JS object. React is doing Efficient Dom manipulation.
+Virtual DOM: Virtal DOM is a representation of actual DOM. It is kind of nothing but a JS object, The Html converted into js object. React is doing Efficient Dom manipulation.
 
 <!-- Diffing Algorithm -->
 
 Diffing Algorithm finds out the difference between updated virtual dom and previous virtual dom, and then actually updates the dom on every render cycle.
 
 <!-- React Fiber -->
+
+React fiber is a ongoing reimplementation of react's core algorithm.
 
 Incremental Rendering: The ability to split rendering work into chunks and spread out over multiple frames.
 
@@ -447,7 +451,7 @@ Inside lazy() function, import() is also a function.
 
 Type: CSS Preprocessor
 Purpose: Extends CSS with variables, nesting, and more.
-Syntax: Indentation-based (older)
+Syntax: Indentation-based (older) 
 
 <!-- 2. SCSS (Sassy CSS) -->
 
@@ -605,9 +609,9 @@ While Parcel includes transpilation by default, you may still need to use Babel 
 
 <!-- test folder name -->
 
-main folder __tests__
+main folder **tests**
 
-__tests__ two underscore(__) at the start and in the end is known as dunder method.
+**tests** two underscore(\_\_) at the start and in the end is known as dunder method.
 
 - Any file inside this folder will be testing files and the naming convention should be .test.js/.test.ts/.jest.js/.jest.ts
 
